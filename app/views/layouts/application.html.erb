@@ -3,30 +3,265 @@
   <head>
     <title>CFapp</title>
   	
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/jquery.selectbox.css" media="screen">
+
+
+
+
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/vertical-accordion.css" media="screen">
+
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/dropdown.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/global.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/mainstyle.css" media="screen">
+ 
+
 
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  	<script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  	<script href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="assets/javascripts/jquery.selectbox-0.2.js"></script>
+	<script type="text/javascript" src="assets/javascripts/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/javascripts/jquery.conventAccordion.js"></script>
+	<script type="text/javascript" src="assets/javascripts/site.js"></script>
+  	
 
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<%= csrf_meta_tags %>
   </head>
 
   <body>
-  	<nav>
-  		<ul>
-    		<li>Home</li>
-    		<li>About</li>
-    		<li>Contact</li>
-  		</ul>
-	</nav>
+		<!--Page Wrapper Start-->
+		<div id="wrapper">
+			<!--container Start-->
+			<!--Header Section Start-->
+			<header class="header2" id="header">
+				<div class="top-header hidden-xs">
+					<div class="container">
+						<div class="row clearfix">
+							<div class="col-xs-12">
+								<ul class="top-header-left clearfix">
+									<li class="register-link clearfix">
+										<i class="lock-icon icon_lock"> </i><a href="#" class="login">Log In</a>
+										<span>/</span><a href="#" class="register">Register </a>
+									</li>
+									<li class="select-wrapper">
+										<select class="select">
+											<option> English </option>
+											<option> Italian </option>
+										</select><i class="arrow_carrot-down"></i>
+									</li>
+									<li class="select-wrapper">
+										<select class="select">
+											<option> USD </option>
+											<option> EUR </option>
+											<option> GBP </option>
+										</select><i class="arrow_carrot-down"></i>
+									</li>
+								</ul>
+								<ul class="top-header-right clearfix">
+									<li class="profile">
+										<a href="#"><i class="icon_profile"></i>My Account </a>
+									</li>
+									<li class="gift">
+										<a href="#"><i class="icon_gift"></i> My Wishlist</a>
+									</li>
+									<li class="checkout">
+										<a href="#"><i class="icon_check_alt"></i>Checkout</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="middle-header2">
+					<div class="container">
+						<div class="row clearfix">
+							<div class="col-xs-12 middle-header-content">
+								<div class="middle-header2-right clearfix">
+									<form class="clearfix">
+										<input type="text" placeholder="SEARCH" name="search">
+										<button type="submit">
+											<i class="fa fa-search"></i>
+										</button>
+									</form>
+									<div class="cart-wrapper clearfix">
+										<div class="open-cart">
+											<span class="cart">CART</span><i class="shopping-cart fa fa-shopping-cart"> <span class="badge">0</span> </i>
+										</div>
+									</div>
+								</div>
+								<div class="menu-section hidden-xs">
+									<a href="#" class="clearfix"><i class="fa fa-bars"></i> MENU </a>
+								</div>
+								<a href="#" class="header2-logo"> <img src="assets/images/#" alt="BikeRace"> </a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<nav class="navigation">
+					<div class="container">
+						<div id="cssmenu">
+							<a href="javascript:void(0);" class="main-menu menu-image"></a>
+							<ul class="menu-links">
+								<li>
+									<a href="#">Home</a>
+								<li>
+									<a href="#">NEW PRODUCTS</a>
+								</li>
+								<li>
+									<a href="#">DISCOUNTED</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">Parts</a>
+									<i class="fs1 mmenu eicon visible-xs" data-icon="3"></i>
+									<ul class="sub-menu">
+										<li>
+											<a href="#">Test1</a>
+										</li>
+										<li>
+											<a href="#">Test2</a>
+										</li>
+										<li>
+											<a href="#">Test3</a>
+										</li>
+										<li>
+											<a href="#">Test4</a>
+										</li>
+										<li>
+											<a href="#">Test5</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">BRANDS</a>
+								</li>
+								<li class="has-sub">
+									<a href="javascript:void(0);">NEWS</a>
+									<i class="fs1 mmenu eicon visible-xs" data-icon="3"></i>
+									<ul class="sub-menu">
+										<li>
+											<a href="#">Racing Team</a>
+										</li>
+										<li>
+											<a href="#">Components</a>
+										</li>
+										<li>
+											<a href="#">Test</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Contact us</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</header>
 
     <%= yield %>
 
-	<footer>
-	  &copy; 2015 Bike Berlin
+
+	<!--Footer Section Start-->
+	<footer class="footer">
+		<div class="primary-footer">
+			<div class="container">
+				<div class="row">
+					<div class="footer-content col-md-3 col-sm-3 col-xs-12">
+						<div class="footer-border">
+							<h4> BRAND </h4>
+							<ul class="footer-nav">
+								<li>
+									<a href="#">Discacciati</a>
+								</li>
+								<li>
+									<a href="#">Brembo</a>
+								</li>
+								<li>
+									<a href="#">WP</a>
+								</li>
+								<li>
+									<a href="#">Akrapovic</a>
+								</li>
+								<li>
+									<a href="#">Arrow</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-content col-md-3 col-sm-3 col-xs-12">
+						<div class="footer-border">
+							<h4> OUR OFFERS </h4>
+							<ul class="footer-nav">
+								<li>
+									<a href="#">New products</a>
+								</li>
+								<li>
+									<a href="#">Discounted</a>
+								</li>
+								<li>
+									<a href="#">Floating Brake</a>
+								</li>
+								<li>
+									<a href="#">Wheels</a>
+								</li>
+								<li>
+									<a href="#">Mufflers</a>
+								</li>
+								<li>
+									<a href="#">Race components</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-content col-md-3 col-sm-3 col-xs-12">
+						<div class="footer-border">
+							<h4> ORDER INFO </h4>
+							<ul class="footer-nav">
+								<li>
+									<a href="#">Order tracking</a>
+								</li>
+								<li>
+									<a href="#">Privacy Policy</a>
+								</li>
+								<li>
+									<a href="#">Terms &amp; Conditions</a>
+								</li>
+								<li>
+									<a href="#">Shipping</a>
+								</li>
+								<li>
+									<a href="#">Returns &amp; refunds</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-content col-md-3 col-sm-3 col-xs-12">
+						<div class="footer-border">
+							<h4> OUR CONTACT </h4>
+							<div class="info-block">
+								<address class="address-info">
+									Barberino di Mugello
+									<br />
+									50031 Florence, Italy
+								</address>
+								<span class="call-info"> <a href="#">(000 000 000 </a> <a href="#">111 111 111</a> </span>
+								<span class="mail-info"> <a href="mailto:bikerace@test.com">bikerace@tes.com</a> </span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="secondary-footer">
+			<span class="copy-right">Copyright © 2017 Bike Race. All rights reserved.</span>
+		</div>
 	</footer>
+			<!--Footer Section End-->
 
   </body>
 </html>
