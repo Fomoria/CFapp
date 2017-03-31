@@ -1,4 +1,13 @@
-<h1>Welcome to Bike Berlin</h1>
+<p id="notice"><%= notice %></p>
 
+<h1>Listing products</h1>
 
-<%= image_tag("zxr08rep.jpg", class: "img-responsive") %>
+<div class="container-fluid">
+  <div class="row">
+    <% @products.each do |product| %>
+      <%= render @products %>
+    <% end %>
+  </div>
+</div>
+
+<br>
