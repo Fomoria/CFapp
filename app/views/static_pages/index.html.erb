@@ -1,13 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Listing products</h1>
-
-<div class="container-fluid">
-  <div class="row">
-    <% @products.each do |product| %>
-      <%= render @products %>
-    <% end %>
-  </div>
+	
+	<h1>Bike Shop CareerFoundry</h1>
+	
+	<div class="col-xl-12">
+    <%= link_to image_tag("zxr08rep.jpg", class: "img-responsive"), products_url %>
+	</div> 
 </div>
-
-<br>
