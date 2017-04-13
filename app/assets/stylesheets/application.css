@@ -13,3 +13,164 @@
  *= require_tree .
  *= require_self
  */
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  min-height: 100%;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 135px;
+  padding-top: 10px;
+}
+/**** Navigation ***/
+
+.navbar {
+  background-color: #D2D7D9;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+
+li {
+  font-family: ribeye, Helvetica, sans-serif;
+  padding: 20px 15px 15px 15px;
+  color: #090909;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.nav>li>a {
+  padding: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #090909;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover  {
+  color: #090909;
+}
+
+.dropdown-menu {
+  background-color: #D2D7D9;
+  border: none;
+}
+
+.dropdown-menu>li>a {
+  color: #090909;
+}
+
+.dropdown-menu>li {
+  padding: 10px;
+}
+
+.dropdown>a {
+  cursor: pointer;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+  color: #090909;
+  background-color: #D2D7D9;
+  font-weight: 600;
+}
+
+#search {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-transform: none;
+  margin-top: -4px;
+}
+
+.search-box {
+  width: auto;
+  display: inline-block;
+  float: left;
+}
+
+.search-button {
+  display: inline-block;
+  float: left;
+  height: 30px;
+  border-radius: 0 5px 5px 0;
+}
+
+#search input {
+  border-radius: 5px 0 0 5px;
+}
+
+/* Code to change collapse breakpoint */
+@media (max-width: 991px) {
+  .navbar-header {
+      float: none;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+
+  .navbar-right .dropdown-menu {
+    right: initial;
+  }
+  .navbar-toggle {
+      display: block;
+  }
+
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin: 7.5px -15px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+}
+
+/**** Footer ****/
+
+footer {
+  color: #858F93;
+  padding: 15px;
+  font-family: Helvetica, sans-serif;
+  background-color: #D2D7D9;
+  position: absolute;
+  width: 100%;
+  height: 115px;
+  left: 0;
+  bottom: 0;
+}
+
+hr {
+  border-color: #858F93;
+  width: 90%;
+}
+
+footer p {
+  display: inline-block;
+}
+
+.right {
+  float: right;
+}
+

@@ -188,7 +188,9 @@
 		});
 		$('.mmenu').on('click', function() {
 			$(this).next().slideToggle();
-		});		$('body').on('click', function() {
+		});
+
+		$('body').on('click', function() {
 			
 			$('.item-block').slideUp();
 		});
@@ -247,7 +249,9 @@
 			var cat = $(this).attr('ID');
 			$(this).addClass('active');
 			showProjectsbyCat(cat);
-		});		if ($('#slider-meter').length) {
+		});
+
+		if ($('#slider-meter').length) {
 			$("#slider-meter").slider({
 				range : true,
 				min : 16,
@@ -373,3 +377,20 @@
 		
 	
 })(jQuery);
+
+/*RATING*/
+
+$(document).on("turbolinks:load", function () {
+  $(".rating").raty( { path: '/assets', scoreName: 'comment[rating]' });
+  $(".rated").raty({ path: "/assets",
+    readOnly: true,
+    score: function() {
+      return $(this).attr("data-score");
+    }
+  });
+
+  $(".enable-review").click( function() {
+    $(".review-container").show();
+  });
+
+});

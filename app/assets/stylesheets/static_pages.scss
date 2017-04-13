@@ -1,5 +1,95 @@
-h1 {
-	font-family: "Sans+serif";
-	color: red;
-	text-align: center;
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1,
+h2 {
+  font-family: Helvetica, Arial, Sans Serif;
+  color: #d18416;
+  text-align: center;
+}
+
+h3 {
+  color: #d18416;
+}
+
+.image-row {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.contact-info {
+  text-align: center;
+  padding: 2em 0;
+}
+
+main {
+  padding: 2em;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left {
+  color: #D2D7D9;
+}
+
+.carousel-caption {
+  position: relative;
+  color: #858F93;
+  text-shadow: none;
+  font-size: 2em;
+  right: auto;
+  left: auto;
+}
+
+.carousel-indicators li {
+  background-color: #858F93;
+  padding: 3px;
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: #D2D7D9;
+}
+
+.carousel-image {
+  height: 550px;
+  max-height: 550px;
+  width: auto;
+  margin: auto;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.forms {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.forms label {
+  color: #134263;
+}
+
+@media(max-width: 992px)  {
+  .contact-form {
+    max-width: 70%;
+  }
+}
+
+.send-button {
+  margin-bottom: 10px
+}
+
+.alert {
+  text-align: center;
+  margin-top: -20px;
 }

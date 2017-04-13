@@ -1,3 +1,110 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+table {
+  width: 80%;
+  margin: 20px;
+}
+
+.new-product {
+  margin-bottom: 20px;
+  margin-left: 20px
+}
+
+.product-overview {
+  margin: 40px 0;
+  float: left;
+  height: 430px;
+}
+
+.product-container {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.product-container img {
+  padding: 20px 0;
+  max-width: 100%;
+}
+
+textarea.form-control {
+  height: 100px;
+}
+
+.all-products {
+  margin: 20px;
+} 
+
+.new-button {
+  margin-left: 10px;
+}
+
+.review-button {
+  display: inline-block;
+  float: right;
+}
+
+.reviews h4 {
+  display: inline-block;
+}
+
+.cart-button {
+  padding: 10px 30px;
+  margin-top: 20px;
+}
+
+button .glyphicon {
+  padding-right: 10px;
+}
+
+.product-description,
+.reviews {
+  padding-left: 0;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 20px
+}
+
+.product-specs {
+  padding: 0 40px;
+}
+
+.product-container hr {
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .product-specs {
+    padding: 0;
+  }
+  .cart-button {
+    margin-bottom: 20px;
+  }
+}
+
+.posted-reviews {
+  margin-left: 0;
+}
+
+.rated img {
+  padding: 0;
+}
+
+ @media (max-width: 768px) {
+ .product-container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.admin-navigation {
+  margin-top: 20px;
+}
+
+.time-ago {
+  margin-left: 5px;
+}
