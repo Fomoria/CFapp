@@ -19,7 +19,6 @@
       <% if @comments.present? %>
           <div class="row">
               <hr>
-
               <%= @product.highest_rating_comment.body %>
               <p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
               <% if signed_in? && current_user.admin? %>
