@@ -8,6 +8,10 @@
     </div>
     <div class="col-xs-12 col-md-5 product-specs">
       <p class="price">€<%= @product.price %></p>
+          <%= form_tag "/payments/create" do %>
+              <%= render partial: "shared/stripe_checkout_button" %>
+              <%= hidden_field_tag :product_id, @product.id %>
+          <% end %>
       <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
       <p><button class="btn btn-primary cart-button"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</button>
     </div>
