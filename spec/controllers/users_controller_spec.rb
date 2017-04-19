@@ -26,10 +26,8 @@ describe UsersController, :type => :controller do
       	end
       	context 'User not authorized' do
       		it 'redirects to root path' do
-      	  		get :show, params: {id: @user2.id}
-      	  		expect(response).to be_successful
-      	  		expect(assigns(:user)).not_to eq(@user2)
-          		redirect_to root_url
+      	  		get :show, params: {id: @user2.id}  
+				expect(response).to redirect_to(root_path)
         	end
       	end
 end
