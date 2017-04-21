@@ -7,7 +7,7 @@
       <% end %>
     </div>
     <div class="col-xs-12 col-md-5 product-specs">
-      <p class="price">€<%= @product.price %></p>
+      <p class="price">$<%= @product.price %></p>
           <%= form_tag "/payments/create" do %>
               <%= render partial: "shared/stripe_checkout_button" %>
               <%= hidden_field_tag :product_id, @product.id %>
