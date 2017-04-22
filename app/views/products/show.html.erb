@@ -3,7 +3,7 @@
     <h3><%= @product.name %></h3>
     <div class="col-xs-12 col-md-7 thumbnail">
       <% unless @product.image_url.blank? %>
-        <%= image_tag(@product.image_url, class: "img-responsive img-zoom", data_zoom_image: "@product.image_url") %>
+        <%= image_tag(@product.image_url, class: "img-zoom data_zoom_image:'@product.image_url'") %>
       <% end %>
     </div>
     <div class="col-xs-12 col-md-5 product-specs">
