@@ -378,24 +378,32 @@
 	
 })(jQuery);
 
-/*RATING*/
 
-$(document).on('turbolinks:load', function(){
-  $('.rating').raty( { path: '/assets', scoreName: 'comment[rating]' });
-  $('.rated').raty({ path: '/assets',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
-});
 
-/*ZOOM*/
 
+var refreshRating = function() {
+    $('.rating').raty( { path: '/assets', scoreName: 'comment[rating]' });
+    $('.rated').raty({ path: '/assets',
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        }
+    });
+};
+
+//RATING//
 $(document).on('turbolinks:load ajaxSuccess', function(){
-	refreshRating(); 
-	
-	$('.img-zoom').elevateZoom(); 
+
+    $('.rating').raty( { path: '/assets', scoreName: 'comment[rating]' } );
+    $('.rated').raty({ path: '/assets',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+
+//ZOOM//
+    $('.img-zoom').elevateZoom();
 });
 
 /*

@@ -1,45 +1,77 @@
-<div class="container-fluid product-container">
+<% cache @product do %>
+<div class="container anchor">
   <div class="row">
-    <h3><%= @product.name %></h3>
-    <div class="col-xs-12 col-md-7 thumbnail">
-      <% unless @product.image_url.blank? %>
-        <%= image_tag(@product.image_url, class: "img-zoom data_zoom_image:'@product.image_url'") %>
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-md-5 product-specs">
-      <p class="price">$<%= @product.price %></p>
-          <%= form_tag "/payments/create" do %>
+    <h1>Product overview</h1>
+      <div class="thumbnail">
+        <p>
+            <%= image_tag(@product.image_url, class: "img-responsive img-zoom", data_zoom_image: "@product.image_url") %>
+        </p>
+
+        <div class="col-xs-12 col-md-3">
+          <p>
+            <h4 class="h4-title"><strong><%= @product.name %></strong></h4>
+          </p>
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <p class="p-margin"><strong>Average Rating:</strong></p>
+            <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div>
+         </div>
+
+        <div class="col-xs-12 col-md-3">
+          <p>
+            <strong>Colour:</strong>
+            <%= @product.colour %>
+          </p>
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <p>
+            <strong>Price:</strong>
+            <%= @product.price %>
+          </p>
+            <%= form_tag "/payments/create" do %>
               <%= render partial: "shared/stripe_checkout_button" %>
               <%= hidden_field_tag :product_id, @product.id %>
-          <% end %>
-      <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
-      <p><button class="btn btn-primary cart-button"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</button>
-    </div>
-    <div class="col-xs-12 product-description">
-      <p><%= @product.description %></p>
-    </div>
+            <% end %>
+        </div>
 
-    <div class="col-xs-12 reviews">
-      <% if @comments.present? %>
-          <div class="row">
-              <hr>
+        <div class="col-xs-12 col-md-12 div-color">
+          <p>
+            <strong class="underline">Description:</strong>
+            <%= @product.description %>
+          </p>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <p>
+            <strong class="underline">Top comment:</strong><br />
+            <% if @product.highest_rating_comment %>
               <%= @product.highest_rating_comment.body %>
-              <p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
-              <% if signed_in? && current_user.admin? %>
-                  <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-              <% end %></p>
-              <div class="rated" data-score="<%= comment.rating %>"></div>
-              <p><%= comment.body %></p>   
-          </div>
-      <% end %>
+            <% else %>
+              no comments
+            <% end %>
+          </p>
+        </div>
+
+
+        <div class="col-xs-12 col-md-12 div-color">
+          <p>
+            <strong class="underline">Comments:</strong>
+            <%= render partial: "comments" %>
+          </p>
+        </div>
 
 
 
-      <div class="admin-navigation">
-        <%= link_to 'Back', products_path, class: "btn btn-primary btn-xs" %>
-        <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary btn-xs' %>
-        <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %>
-      </div> <!-- end admin navigation -->
-    </div>
-  </div> <!-- end row -->
-</div> <!-- end container -->
+        <div class="col-xs-12 col-md-12 new_comment">
+          <%= render partial: "new_comment" %>
+        </div>
+
+            <%= link_to 'Edit', edit_product_path(@product) %> |
+            <%= link_to 'Back', products_path %>
+
+      </div>
+  </div>
+</div>
+<% end %>

@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to @product, notice: 'Your review was created successfully.' }
         format.json { render :show, status: :created, location: @product }
+        format.js
       else
         format.html { redirect_to @product, alert: 'Your review was not saved, did you remember to rate this product?' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
