@@ -1,11 +1,14 @@
-<div class="col-sm-2 col-md-4">
-        <%= image_tag(product.image_url, class: "img-responsive") %>
-        <h1><%= product.name %></h1>
-        <p><%= product.description %></p>
-        <p><%= product.colour %></p>
-        <p><%= product.price %></p>
-        <p><%= link_to 'Show', product %></p>
-        <p><%= link_to 'New Product', new_product_path %></p>
-        <p><%= link_to 'Edit', edit_product_path(product) %></p>
-        <p><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-</div>
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail product-height">
+    <%= image_tag(product.image_url, class: "img-responsive") %>
+    <div class="caption">
+    <% cache product do %>
+      <h3><%= product.name %> <div class="rated" data-score="<%= product.average_rating %>"></div></h3>
+      <p><b>description:</b> <%= product.description %></p>
+      <p><b>colour:</b> <%= product.colour %></p>
+      <p><b>price:</b> $ <%= product.price %></p>
+      <p><%= link_to 'Show', product %> <%= link_to 'Edit', edit_product_path(product) %> <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+    </div><!-- end caption -->
+  </div><!-- end thumbnail -->
+</div><!-- /col -->
