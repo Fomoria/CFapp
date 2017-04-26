@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comments = @product.comments.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     Comment.page(params[:page]).order('created_at DESC')
+    @product.viewed!
   end
 
   # GET /products/new
