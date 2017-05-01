@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-
-  devise_for :users, :controllers => { :registrations => "user_registrations"}
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   resources :users
+  
+  get 'user_mailer/contact_form'
+
+
   resources :products do
     resources :comments
   end
