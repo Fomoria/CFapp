@@ -391,19 +391,24 @@ var refreshRating = function() {
     });
 };
 
-//RATING//
 $(document).on('turbolinks:load ajaxSuccess', function(){
 
-    $('.rating').raty( { path: '/assets', scoreName: 'comment[rating]' } );
-    $('.rated').raty({ path: '/assets',
-      readOnly: true,
-      score: function() {
-        return $(this).attr('data-score');
-      }
-    });
+  refreshRating();
 
-//ZOOM//
-    $('.img-zoom').elevateZoom();
+  // elevate zoom
+  $('.img-zoom').elevateZoom({
+    responsive: true,
+    zoomWindowWidth:500,
+    zoomWindowHeight:300,
+    zoomWindowFadeIn: 500,
+    zoomWindowFadeOut: 750,
+    scrollZoom: true,
+    zoomLevel: 4
+  });
+
+  $(function() {
+    $('.alert').delay(2000).fadeOut();
+  });
 });
 
 /*

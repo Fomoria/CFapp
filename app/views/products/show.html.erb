@@ -1,90 +1,77 @@
-
-<div class="container anchor">
-  <div class="row">
-    <h1>Product overview</h1>
-      <div class="thumbnail">
-        <p>
-            <%= image_tag(@product.image_url, class: "img-responsive img-zoom", data_zoom_image: "@product.image_url") %>
-        </p>
-
-        <div class="col-xs-12 col-md-3">
-          <p>
-            <h4 class="h4-title"><strong><%= @product.name %></strong></h4>
-          </p>
-          <h6>  
-            Views:
-            <span class="badge">
-              <%= @product.views %>
-            </span>
-          </h6>
-        </div>
-
-        <div class="col-xs-12 col-md-3">
-          <p class="p-margin"><strong>Average Rating:</strong></p>
-            <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div>
-         </div>
-
-        <div class="col-xs-12 col-md-3">
-          <p>
-            <strong>Colour:</strong>
-            <%= @product.colour %>
-          </p>
-        </div>
-
-        <div class="col-xs-12 col-md-3">
-          <p>
-            <strong>Price:</strong>
-            <%= @product.price %>
-          </p>
-            <%= form_tag "/payments/create" do %>
-              <%= render partial: "shared/stripe_checkout_button" %>
-              <%= hidden_field_tag :product_id, @product.id %>
-            <% end %>
-        </div>
-
-        <div class="col-xs-12 col-md-12 div-color">
-          <p>
-            <strong class="underline">Description:</strong>
-            <%= @product.description %>
-          </p>
-        </div>
-
-        <div class="col-xs-12 col-md-6">
-            <h6>  
-                Views:
-                <span class="badge">
-                    <%= @product.views %>
-                </span>
-            </h6
-          
-            <p>
-                <strong class="underline">Top comment:</strong><br />
-                <% if @product.highest_rating_comment %>
-                    <%= @product.highest_rating_comment.body %>
-                <% else %>
-                no comments
-                <% end %>
-            </p>
-        </div>
-
-
-        <div class="col-xs-12 col-md-12 div-color">
-          <p>
-            <strong class="underline">Comments:</strong>
-            <%= render partial: "comments" %>
-          </p>
-          <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-        </div>
-
-
-
-        <div class="col-xs-12 col-md-12 new_comment">
-          <%= render partial: "new_comment" %>
-        </div>
-
-            <%= link_to 'Edit', edit_product_path(@product) %> |
-            <%= link_to 'Back', products_path %>
-
-        </div>
+<div class="container">
+  <div class="row" data-product-id="<%= @product.id %>">
+    <div class="col-xs-12 col-sm-6 col-md-6 show-product-img">
+    <!-- <% cache @product do %> -->
+      <% if @product.image_url.present? %>
+        <%= image_tag(@product.image_url, data_zoom_image: "@product.image_url", class: "img-zoom img-responsive product-img") %>
+      <% end %>
     </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 description">
+      <p>
+        <strong>Name:</strong>
+        <%= @product.name %>
+      </p>
+      <p>
+        <strong>Views:</strong>
+        <span class="badge">
+        <%= @product.views %>
+        </span>
+      </p> 
+
+      <p>
+        <strong>Description:</strong>
+        <%= @product.description %>
+      </p>
+
+      <p>
+        <strong>Colour:</strong>
+        <%= @product.colour %>
+      </p>
+
+      <p class="show-product-price">
+        <strong>Price:</strong>
+        <%= @product.price %> &euro;
+      </p>
+      <p>Average Rating: <span class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></span> </p>
+      <p>
+        Highest Rating:
+        <span class="rated" id="highest-rating" data-score="<%= @product.highest_rating_comment.try(:rating) %>"></span>
+        </br>
+        <strong>Comment:</strong> <%= @product.highest_rating_comment.try(:body) %>
+      </p>
+      <div>
+        <%= form_tag "/payments/create" do %>
+          <%= render partial: "shared/stripe_checkout_button" %>
+        <% end %>
+      </div>
+    </br>
+      <div class="show-product-link">
+        <%= link_to ' Back', products_path, class: 'glyphicon glyphicon-arrow-left btn btn-primary', role: 'button'%>
+        <% if signed_in? && current_user.admin? %>
+        <%= link_to ' Edit', edit_product_path(@product), class: 'glyphicon glyphicon-edit btn btn-primary', role: 'button' %>
+        <% end %>
+    <!-- <% end %> -->
+      </div>
+    </div>
+  </div>
+</br>
+  <div class="row">
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+    <% if signed_in? %>
+    <div class="col-xs-12 col-sm-5 col-md-5 comments">
+      <%= render partial: "new_comment", locals: {comment: @comment} %>
+    </div>
+    <div class="col-xs-0 col-sm-1 col-md-1 comments"></div>
+    <% end %>
+    <div class="col-xs-12 col-sm-6 col-md-6 comments">
+      <%= render partial: "comments", locals: {comment: @comment} %>
+      <div class="apple_pagination">
+          <div class="apple_pagination page_entries">
+            <%= page_entries_info @comments %>
+          </div>
+          <%= will_paginate @comments, :container => false %>
+      </div>
+    </div>
+  </div>
 </div>
+
