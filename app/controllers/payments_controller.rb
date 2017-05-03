@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
         Order.create(
           product_id: @product.id, 
           user_id: @user.id,
-          total: @product.price_in_cents
+          total: @product.price
           )
         UserMailer.successful_payment(@user, @product).deliver_now
       end
